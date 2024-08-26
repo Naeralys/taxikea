@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  mongo:
+    container_name: mongo-taxikea
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - taxikea-mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=randompassword
+  api:
+    container_name: taxikea-api
+    build: ./
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_URI=mongodb://root:randompassword@host.docker.internal:27017/taxikea?authSource=admin
+
+volumes:
+  taxikea-mongo-data:
