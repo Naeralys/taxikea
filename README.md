@@ -1,4 +1,4 @@
-# IKEA Technical Assessment - Taxikea Api
+# IKEA Technical Assessment - Taxikea Api ![build and test](https://github.com/Naeralys/taxikea/actions/workflows/taxikea-api.yaml/badge.svg)
 
 _TYPESCRIPT / EXPRESS / MONGODB / JEST_
 

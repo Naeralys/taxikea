@@ -1,4 +1,4 @@
-name: Test & Build (Tools)
+name: Test & Build
 
 on:
   push:
