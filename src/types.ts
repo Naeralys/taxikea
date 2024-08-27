@@ -10,3 +10,12 @@ export type RideBid = {
   rideId: string
   bidAmount: number
 }
+
+export type Ride = {
+  id: string
+  clientId: string
+  pickupLocation: string
+  dropoffLocation: string
+  proposedPrice: number
+  bids: []
+}

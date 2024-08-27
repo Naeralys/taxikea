@@ -31,7 +31,7 @@ export const createRideRequest = async (rideRequest: RideRequest) => {
     bids: []
   }
 
-  await rideModel.create(newRideRequest)
+  return await rideModel.create(newRideRequest)
 }
 
 /**
@@ -79,11 +79,15 @@ export const bidOnRide = async (rideBid: RideBid) => {
   }
 
   // Push a bid onto the ride
-  await rideModel.updateOne({
+  // Note: Even though this retrieves the same object twice, it's for
+  // two different purposes. One validates and one does the actual update.
+  return await rideModel.findOneAndUpdate({
     id: rideId
   }, {
     $push: {
       bids: bid
     }
+  }, {
+    returnOriginal: false
   })
 }

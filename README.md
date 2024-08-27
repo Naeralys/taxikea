@@ -13,7 +13,7 @@ My solution is based on a vertical slice + clean architecture design pattern com
 ### MY THOUGHTS
 This is a structure which I'm extremely fond of, as it can be used on any project with any language (python, c#, java) and on any scale. It's what I've built both previous and current client projects which has turned out to be very scalable with a decent amount of developers working on the same codebase.
 
-It does not contain any "real" unit tests as there is barely any "real" business logic such as converting/manipulating data. I have added an endpoint test validator which really just checks that someone has not completely deleted an endpoint to have a unit test framework up and running.
+It does not contain any "real" unit tests as there is barely any "real" business logic such as converting/manipulating data. I have added an endpoint test validator which really just checks that someone has not completely deleted an endpoint to have a unit test framework up and running. However, a integration test suite has been created to make sure the endpoints works with database queries. If the project was more business logic I'd create more unit tests and less integration tests, and vice versa.
 
 It does not contain a service layer typically found on such projects, as I really only had one function which could be added to a service layer. It turned out to be a really small REST (post/get) project.
 
@@ -51,7 +51,3 @@ POST /ride/bid
   "bidAmount": 26
 }
 ```
-
-### TODOs which should be completed before submission:
-* Integration tests with in-memory mongodb
-* Test and build pipeline on github actions

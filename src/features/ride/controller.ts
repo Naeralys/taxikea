@@ -1,6 +1,7 @@
 import { handleAsync } from '~/helpers'
 import { validateRequestARide, validateRideBid } from './validator'
 import { createRideRequest, getAllRides, bidOnRide } from './repository'
+import { Ride, RideBid, RideRequest } from '~/types'
 
 export default [
 {
@@ -12,11 +13,11 @@ export default [
   handler: [
     ...validateRequestARide,
     handleAsync(async (req, res) => {
-      const rideRequest = req.body
+      const rideRequest: RideRequest = req.body
 
-      await createRideRequest(rideRequest)
+      const createdRide = await createRideRequest(rideRequest)
 
-      res.send("Ride was successfully created.")
+      res.status(201).send(createdRide)
     })
   ]
 },
@@ -28,7 +29,7 @@ export default [
   method: 'get',
   handler: [
     handleAsync(async (req, res) => {
-      const rides = await getAllRides()
+      const rides: Ride[] = await getAllRides()
 
       res.json(rides)
     })
@@ -43,11 +44,11 @@ export default [
   handler: [
     ...validateRideBid,
     handleAsync(async (req, res) => {
-      const rideBid = req.body
+      const rideBid: RideBid = req.body
 
-      await bidOnRide(rideBid)
+      const biddedRide = await bidOnRide(rideBid)
 
-      res.send("Ride successfully bidded on")
+      res.status(201).send(biddedRide)
     })
   ]
 }]

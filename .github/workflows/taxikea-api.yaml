@@ -1,0 +1,29 @@
+name: Test & Build (Tools)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint-test-build:
+    runs-on: ubuntu-latest
+    name: "Test & Build"
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    - name: Install modules
+      run: npm i
+
+    - name: Run unit tests
+      run: npm run test:unit
+    
+    - name: Run integration tests
+      run: npm run test:integration
+
+    - name: Run build
+      run: docker build .
