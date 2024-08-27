@@ -18,5 +18,6 @@ export const validateRequestARide = [
 export const validateRideBid = [
   body('fleetId').notEmpty(),
   body('bidAmount').notEmpty(),
-  body('rideId').notEmpty()
+  body('rideId').notEmpty(),
+  sendValidationErrors
 ]

@@ -8,7 +8,7 @@
     "test:integration": "ENVIRONMENT=test jest 'test/.*\\.test\\.ts' --file=test/setup --forceExit",
     "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts",
     "build": "tsc",
-    "start": "ts-node -r tsconfig-paths/register ./dist/index.js"
+    "start": "ts-node -r tsconfig-paths/register ./dist/src/index.js"
   },
   "author": "",
   "license": "ISC",

@@ -21,4 +21,4 @@ export const ClientSchema = new mongoose.Schema({
   timestamps: true 
 })
 
-export default mongoose.models.ClientSchema || mongoose.model('Client', ClientSchema)
+export default mongoose.models.Client || mongoose.model('Client', ClientSchema)

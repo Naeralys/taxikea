@@ -29,4 +29,4 @@ export const RideSchema = new mongoose.Schema({
   timestamps: true 
 })
 
-export default mongoose.models.RideSchema || mongoose.model('Ride', RideSchema)
+export default mongoose.models.Ride || mongoose.model('Ride', RideSchema)

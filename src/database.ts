@@ -15,10 +15,7 @@ export const db = mongoose
  */
 export const connectDatabase = async () => {
 
-  if (
-    config.ENVIRONMENT === ENVIRONMENT.TEST || 
-    process.env.NODE_END === ENVIRONMENT.TEST
-  ) {
+  if (config.ENVIRONMENT === ENVIRONMENT.TEST) {
     try {
       await testDatabase.connect()
     } catch (error) {
@@ -26,7 +23,6 @@ export const connectDatabase = async () => {
     }
     return
   }
-
 
   try {
     await db.connect(config.DB_URI)

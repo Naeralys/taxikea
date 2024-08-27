@@ -21,4 +21,4 @@ export const FleetSchema = new mongoose.Schema({
   timestamps: true 
 })
 
-export default mongoose.models.FleetSchema || mongoose.model('Fleet', FleetSchema)
+export default mongoose.models.Fleet || mongoose.model('Fleet', FleetSchema)
